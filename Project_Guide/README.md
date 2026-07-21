@@ -2,7 +2,7 @@
 
 ## Project Vision
 
-Wema ML Hub is a banking-focused AI assistant platform designed to help customer relationship teams, relationship managers, and business users query customer intelligence in natural language.
+ML Hub is a banking-focused AI assistant platform designed to help customer relationship teams, relationship managers, and business users query customer intelligence in natural language.
 
 Instead of asking different teams to manually pull insights from multiple model outputs, ML Hub brings together customer data, model predictions, and engagement history into one experience.
 
