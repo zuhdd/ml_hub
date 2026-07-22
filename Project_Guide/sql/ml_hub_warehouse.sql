@@ -186,7 +186,8 @@ INSERT INTO dbo.DimBranch (BranchCode, BranchName, Region, City) VALUES
 ('CAL001','Calabar','Cross River','Calabar'),
 ('MAK001','Makurdi','Benue','Makurdi'),
 ('JAL001','Jalingo','Taraba','Jalingo'),
-('ZAR001','Zaria','Kaduna','Zaria');
+('ZAR001','Zaria','Kaduna','Zaria'),
+('IBD002','Bodija','Oyo','Ibadan');
 GO
 
 ;WITH n AS (
