@@ -10,9 +10,27 @@ __pycache__/
 *.py[cod]
 *.pyo
 
+# Python virtual environments
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
 # Environment files
 .env
 .env.*
 
 # Logs
 *.log
+
+# Temporary files
+*.tmp
+
+# Backup files
+*.bak
+• Project_Guide
+
+# Ignore venv and project guide directory
+.venv/
+Project_Guide/
+

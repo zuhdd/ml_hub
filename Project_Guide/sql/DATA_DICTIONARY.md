@@ -87,7 +87,7 @@ This data dictionary describes the warehouse tables created by the SQL script in
 | Column | Type | Description |
 |---|---|---|
 | CustomerId | INT | Foreign key to DimCustomer |
-| CLVScore | DECIMAL(12,2) | Customer lifetime value estimate |
+| CLVScore | DECIMAL(12,2) | Customer lifetime value score, normalized 0-100 |
 | CLVBand | NVARCHAR(20) | CLV band such as Low, Medium, or High |
 | CLVSegment | NVARCHAR(30) | CLV segment grouping |
 | ModelDate | DATE | Date the CLV score was generated |
@@ -121,8 +121,10 @@ This data dictionary describes the warehouse tables created by the SQL script in
 |---|---|---|
 | CustomerId | INT | Foreign key to DimCustomer |
 | LendingModelScore | DECIMAL(8,4) | Lending score |
-| Eligible | BIT | Lending eligibility flag |
+| Eligible | BIT | Lending eligibility flag (should we offer this customer a loan) |
 | ApprovedLimit | DECIMAL(12,2) | Approved lending limit |
+| DefaultRiskScore | DECIMAL(8,4) | Risk of default if this customer is lent to (independent of Eligible) |
+| Defaulted | BIT | Default outcome flag - synthetic ground truth for a default-risk classifier, ~12% positive rate |
 | ModelDate | DATE | Date the lending score was generated |
 
 ### FactCustomerEngagement

@@ -129,6 +129,8 @@ CREATE TABLE dbo.FactCustomerLending (
     LendingModelScore DECIMAL(8,4) NOT NULL,
     Eligible BIT NOT NULL,
     ApprovedLimit DECIMAL(12,2) NOT NULL,
+    DefaultRiskScore DECIMAL(8,4) NOT NULL,
+    Defaulted BIT NOT NULL,
     ModelDate DATE NOT NULL,
     CONSTRAINT PK_FactCustomerLending PRIMARY KEY (CustomerId, ModelDate),
     CONSTRAINT FK_FactCustomerLending_DimCustomer FOREIGN KEY (CustomerId) REFERENCES dbo.DimCustomer(CustomerId)
@@ -320,10 +322,10 @@ INSERT INTO dbo.FactCustomerCLV (
 )
 SELECT
     c.CustomerId,
-    ROUND(1500 + ((c.CustomerId % 250000) * 1.75), 2),
+    ROUND((c.CustomerId % 10000) / 100.0, 2),
     CASE
-        WHEN ((c.CustomerId % 250000) * 1.75) > 180000 THEN 'High'
-        WHEN ((c.CustomerId % 250000) * 1.75) > 90000 THEN 'Medium'
+        WHEN ((c.CustomerId % 10000) / 100.0) > 70 THEN 'High'
+        WHEN ((c.CustomerId % 10000) / 100.0) > 40 THEN 'Medium'
         ELSE 'Low'
     END,
     CASE
@@ -370,13 +372,15 @@ FROM dbo.DimCustomer AS c;
 GO
 
 INSERT INTO dbo.FactCustomerLending (
-    CustomerId, LendingModelScore, Eligible, ApprovedLimit, ModelDate
+    CustomerId, LendingModelScore, Eligible, ApprovedLimit, DefaultRiskScore, Defaulted, ModelDate
 )
 SELECT
     c.CustomerId,
-    ROUND(0.30 + ((c.CustomerId % 400) / 1000.0), 4),
-    CASE WHEN ((c.CustomerId % 400) / 1000.0) > 0.55 THEN 1 ELSE 0 END,
+    ROUND(0.30 + ((c.CustomerId % 700) / 1000.0), 4),
+    CASE WHEN ((c.CustomerId % 700) / 1000.0) > 0.55 THEN 1 ELSE 0 END,
     ROUND(100000 + ((c.CustomerId % 10000) * 250.0), 2),
+    ROUND(((c.CustomerId + 137) % 1000) / 1000.0, 4),
+    CASE WHEN (((c.CustomerId + 137) % 1000) / 1000.0) > 0.88 THEN 1 ELSE 0 END,
     CAST(GETDATE() AS DATE)
 FROM dbo.DimCustomer AS c;
 GO

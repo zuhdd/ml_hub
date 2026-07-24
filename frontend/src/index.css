@@ -1,0 +1,102 @@
+:root {
+  --purple-950: #1c1030;
+  --purple-800: #3a1f6b;
+  --purple-700: #4a2382;
+  --purple-600: #5d2e99;
+  --purple-500: #7c4bb8;
+  --purple-300: #b48fdd;
+  --purple-200: #d9c7ef;
+  --purple-100: #f1e9fb;
+  --purple-50: #f8f4fd;
+
+  --white: #ffffff;
+  --ink: #1b1329;
+  --muted: #6e6480;
+  --border: #e7dff3;
+  --danger: #b3261e;
+
+  --font-display: "Manrope", -apple-system, "Segoe UI", sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(28, 16, 48, 0.06);
+  --shadow-md: 0 8px 24px rgba(28, 16, 48, 0.08);
+  --shadow-lg: 0 20px 48px rgba(28, 16, 48, 0.14);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-display);
+  background: var(--white);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--purple-200);
+  color: var(--purple-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--purple-500);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
