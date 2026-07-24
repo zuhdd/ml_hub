@@ -22,6 +22,7 @@ __pycache__/
 
 # Logs
 *.log
+*.logs
 
 # Temporary files
 *.tmp
@@ -33,4 +34,6 @@ __pycache__/
 # Ignore venv and project guide directory
 .venv/
 Project_Guide/
+
+__pycache__/
 
