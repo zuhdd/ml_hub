@@ -1,12 +1,12 @@
 # ML Hub
 
-An AI assistant that lets a bank's relationship managers ask questions about their customers in plain English — churn risk, lifetime value, fraud signals, lending eligibility and default risk, product recommendations — and get answers that are grounded in a real warehouse, scoped to exactly who's allowed to see what, and fully auditable.
+An AI assistant that lets a bank's relationship managers ask questions about their customers in plain English ; churn risk, lifetime value, fraud signals, lending eligibility and default risk, product recommendations and get answers that are grounded in a real warehouse, scoped to exactly who's allowed to see what, and fully auditable.
 
-This is an MVP demo, not a production banking system. The synthetic data and the deliberately simplified login are called out explicitly below — nothing here is dressed up to look more real than it is.
+This is an MVP demo, not a production banking system. The synthetic data and the deliberately simplified login are called out explicitly below so nothing here is dressed up to look more real than it is.
 
 ## The one architectural decision that matters most
 
-**The AI never writes SQL and never touches the database directly.** It can only call a small, fixed set of pre-approved functions — get churn risk, get CLV, get lending eligibility, look up one customer, list RMOs. That trade-off (less flexible than free-form query generation) makes an entire category of risk structurally impossible instead of merely discouraged by a prompt.
+**The AI never writes SQL and never touches the database directly** It can only call a small, fixed set of pre-approved functions; get churn risk, get CLV, get lending eligibility, look up one customer, list RMOs. That trade-off (less flexible than free-form query generation) makes an entire category of risk structurally impossible instead of merely discouraged by a prompt.
 
 ## What's actually here
 
